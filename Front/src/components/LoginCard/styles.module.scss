@@ -1,0 +1,19 @@
+.card{
+    position: relative;
+    top: 25vh;
+    &__header{
+        // border: none !important;
+        background-color: rgb(241, 241, 241) !important;
+    }
+    &__form{
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        &__container{
+            text-align: center;
+        }
+        &__button{
+            width: 80%;
+        }
+    }
+}

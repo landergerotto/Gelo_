@@ -5,13 +5,16 @@ const CryptoJS = require("crypto-js");
 
 class AuthControler {
   static async register(req, res) {
-    const { name, email, password, adm, confirmPassword } = req.body;
+    // const { name, email, password, adm, confirmPassword } = req.body;
 
-    // var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
-    // const decryptd = bytes.toString(CryptoJS.enc.Utf8);
-    // const json = JSON.parse(decryptd);
+    
+    var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
+    const decryptd = bytes.toString(CryptoJS.enc.Utf8);
+    const json = JSON.parse(decryptd);
+    
+    console.log(json)
 
-    // const { name, birth, email, password, confirmPassword } = json;
+    const { name, email, password, adm, confirmPassword } = json;
 
     if (!name) return res.status(400).json({ message: "O nome é obrigatório" });
     if (!email)
@@ -32,6 +35,7 @@ class AuthControler {
     ).toString();
 
     const user = new User({
+      name: name,
       login: email,
       password: passwordCrypt,
       email,
