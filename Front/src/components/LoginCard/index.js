@@ -28,7 +28,7 @@ export default function LoginCard() {
         JSON.stringify(json),
         SECRET
       ).toString();
-      var res = await axios.post("http://localhost:8080/api/login/", {
+      var res = await axios.post("http://localhost:8080/api/auth/", {
         jsonCrypt,
       });
       sessionStorage.setItem("token", res.data.token);
