@@ -16,10 +16,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6
     },
-    liked: [{
-        type: String,
-        required: false
-    }], 
+    adm: {
+        type: Boolean,
+        required: true,
+    },
     createdAt: {
         type: Date,
         required: true
