@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import image from "../../img/duds.jpg";
+import tam1 from "../../img/TamanduaCarouseul1.png";
+import tam2 from "../../img/TamanduaCarouseul2.png";
+import tam3 from "../../img/TamanduaCarouseul3.png";
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
 export default function CarouselHome() {
@@ -15,39 +17,39 @@ export default function CarouselHome() {
       <Carousel.Item>
         <img
           alt=""
-          src={image}
-          width="auto"
-          height="auto"
+          src={tam1}
+          width="1920px"
+          height="600px"
           className="d-inline-block align-top"
         />{" "}
         <Carousel.Caption>
-          <h3>First slide label</h3>
+          <h3>Comida</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
       <img
           alt=""
-          src={image}
-          width="auto"
-          height="auto"
+          src={tam2}
+          width="1920px"
+          height="600px"
           className="d-inline-block align-top"
         />{" "}
         <Carousel.Caption>
-          <h3>Second slide label</h3>
+          <h3>de</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
       <img
           alt=""
-          src={image}
-          width="auto"
-          height="auto"
+          src={tam3}
+          width="1920px"
+          height="600px"
           className="d-inline-block align-top"
         />{" "}
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Tamandua Bandeira</h3>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
