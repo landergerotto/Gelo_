@@ -83,10 +83,10 @@ class FomigaController {
         }
     }
 
-    static async getAllArticles(req, res)
+    static async getAllFomigas(req, res)
     {
-        const articles = await Article.find();
-        return res.status(200).send(articles);
+        const fomigas = await Fomiga.find();
+        return res.status(200).send(fomigas);
     }
 
     static async getArticle(_id) {
