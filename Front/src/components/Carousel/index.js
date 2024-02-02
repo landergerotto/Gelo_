@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import tam1 from "../../img/TamanduaCarouseul1.png";
-import tam2 from "../../img/TamanduaCarouseul2.png";
-import tam3 from "../../img/TamanduaCarouseul3.png";
+import tam1 from "../../img/Carousel/TamanduaCarouseul1.png";
+import tam2 from "../../img/Carousel/TamanduaCarouseul2.png";
+import tam3 from "../../img/Carousel/TamanduaCarouseul3.png";
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
 export default function CarouselHome() {

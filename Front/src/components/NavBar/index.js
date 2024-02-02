@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import image from "../../img/NavBar/LogoTamandua.png";
 import LogoBrasil from "../../img/NavBar/Flags/Brasil.png";
 import LogoEUA from "../../img/NavBar/Flags/EUA.png";
+import Perfil from "../../img/NavBar/Perfil.png";
 
 export default function NavBar() {
   return (
@@ -47,6 +48,13 @@ export default function NavBar() {
                 Portugues
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="#home" style={{paddingTop: "5%"}}>
+                <img 
+                    alt=""
+                    src={Perfil}
+                    width="32px"
+                    height="32px"/>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
