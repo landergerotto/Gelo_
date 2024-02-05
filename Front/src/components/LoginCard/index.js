@@ -32,7 +32,7 @@ export default function LoginCard() {
         jsonCrypt,
       });
       sessionStorage.setItem("token", res.data.token);
-      navigate("/home");
+      navigate("/"); // alterar para /home
     } catch (error) {
       setMessage("Erro ao se conectar");
       setShow(true);
