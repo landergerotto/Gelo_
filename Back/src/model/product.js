@@ -20,6 +20,10 @@ const fomigaSchema = new mongoose.Schema({
         type: userSchema,
         required: false
     }],
+    type: {
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         required: true

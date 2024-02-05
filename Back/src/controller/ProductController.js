@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs')
-const Fomiga = require('../model/fomiga')
+const Fomiga = require('../model/product')
 // const User = require('../model/login');
 
 class FomigaController {
