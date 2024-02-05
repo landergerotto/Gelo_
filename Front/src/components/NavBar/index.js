@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import styles from "./styles.module.scss";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import image from "../../img/NavBar/LogoTamandua.png";
+import image from "../../img/NavBar/KeyboardLogo.png";
 import LogoBrasil from "../../img/NavBar/Flags/Brasil.png";
 import LogoEUA from "../../img/NavBar/Flags/EUA.png";
 import Perfil from "../../img/NavBar/Perfil.png";
@@ -13,14 +13,16 @@ export default function NavBar() {
     <Navbar className={styles.background} collapseOnSelect expand="lg">
       <Container>
         <Navbar.Brand href="#home">
+          <div>
           <img
             alt=""
             src={image}
-            width="50px"
-            height="50px"
+            width="60px"
+            height="30px" 
             className="d-inline-block align-top"
           />{" "}
-          TAMANDUA
+          TamanduaKeys
+          </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
