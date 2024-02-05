@@ -1,3 +1,5 @@
+import {  Link } from "react-router-dom";
+
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import styles from "./styles.module.scss";
@@ -12,8 +14,8 @@ export default function NavBar() {
   return (
     <Navbar className={styles.background} collapseOnSelect expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
-          <div>
+        <Navbar.Brand as={Link} to="/" >
+        <div>
           <img
             alt=""
             src={image}
@@ -29,8 +31,8 @@ export default function NavBar() {
           <Nav className="me-auto">
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Home</Nav.Link>
-            <Nav.Link href="#deets">Products</Nav.Link>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/products">Products</Nav.Link>
             <Nav.Link href="#deets">About Us</Nav.Link>
             <NavDropdown title="Language" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
