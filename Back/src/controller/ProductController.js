@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs')
-const Fomiga = require('../model/fomiga')
+const Product = require('../model/product')
 // const User = require('../model/login');
 
-class FomigaController {
+class ProductController {
     static createLog(error) {
         const timestamp = Date.now();
         const archivePath = path.resolve(__dirname, '../logs', `logs-${timestamp}.txt`);
@@ -17,9 +17,9 @@ class FomigaController {
         console.log("lesgoooo fomigaa")
         // return res.status(201).send({ message: "FOMIGAAAAAA"});
 
-        const { name, description, price } = req.body;
+        const { name, description, price, type } = req.body;
 
-        if (!name || !description || !price)
+        if (!name || !description || !price || !type)
             return res.status(400).send({ message: "os campos não podem estarem vazios " });
         if (name.length < 3)
             return res.status(400).send({ message: "o nome do produto não pode ser menor que 3 caracteres" });
@@ -27,17 +27,18 @@ class FomigaController {
             return res.status(400).send({ message: "a descricao do produto não pode ser menor que 15 caracteres" });
 
         try {
-            const fomiga = {
+            const product = {
                 name,
                 description,
                 price,
                 bought: [],
+                type,
                 createdAt: Date.now(),
                 updatedAt: Date.now(),
                 removedAt: null,
             }
             console.log('a')
-            await Fomiga.create(fomiga)
+            await Product.create(product)
 
             return res.status(201).send({ message: "Produto criado com sucesso" })
         } catch (error) {
@@ -83,10 +84,10 @@ class FomigaController {
         }
     }
 
-    static async getAllFomigas(req, res)
+    static async getAllProducts(req, res)
     {
-        const fomigas = await Fomiga.find();
-        return res.status(200).send(fomigas);
+        const products = await Product.find();
+        return res.status(200).send(products);
     }
 
     static async getArticle(_id) {
@@ -103,4 +104,4 @@ class FomigaController {
     }
 }
 
-module.exports = FomigaController;
+module.exports = ProductController;

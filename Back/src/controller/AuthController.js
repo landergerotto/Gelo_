@@ -56,13 +56,13 @@ class AuthControler {
   }
 
   static async login(req, res) {
-    const { email, password } = req.body;
+    // const { email, password } = req.body;
 
-    // var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
-    // const decrypted = bytes.toString(CryptoJS.enc.Utf8);
-    // const json = JSON.parse(decrypted);
+    var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
+    const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+    const json = JSON.parse(decrypted);
 
-    // const { email, password } = json;
+    const { email, password } = json;
 
     if (!email)
       return res.status(422).json({ message: "O e-mail é obrigatório" });
