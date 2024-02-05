@@ -49,7 +49,7 @@ export default function CarouselHome() {
           className="d-inline-block align-top"
         />{" "}
         <Carousel.Caption>
-          <h3>Switchs Keyboards</h3>
+          <h3>Keyboard Switches </h3>
           <p>Switchs for your Keyboard.</p>
         </Carousel.Caption>
       </Carousel.Item>
