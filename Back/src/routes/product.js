@@ -1,9 +1,9 @@
 const express = require('express');
-const FomigaController = require('../controller/ProductController');
+const ProductController = require('../controller/ProductController');
 const route = express.Router();
 
 route
-    .get('/', FomigaController.getAllFomigas)
-    .post('/', FomigaController.create)
+    .get('/', ProductController.getAllProducts)
+    .post('/', ProductController.create)
     
 module.exports = route;

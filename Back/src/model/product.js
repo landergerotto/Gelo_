@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { userSchema } = require("./user");
 
-const fomigaSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -38,7 +38,7 @@ const fomigaSchema = new mongoose.Schema({
     },
 })
 
-const Fomiga = mongoose.model('Fomiga', fomigaSchema);
+const Product = mongoose.model('Product', productSchema);
 
-module.exports = Fomiga
-exports.fomigaSchema = fomigaSchema;
+module.exports = Product
+exports.productSchema = productSchema;
