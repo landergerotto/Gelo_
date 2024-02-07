@@ -1,13 +1,21 @@
-import CarouselHome from "../../components/Carousel";
-import NavBar from "../../components/NavBar";
-import NotFound from "../../components/NotFound";
+import { Col, Row } from "react-bootstrap";
+import styles from "./styles.module.scss";
 import Products from "../../components/ProductsComponent";
-import ProductsHome from "../../components/ProductsHome";
+import NavBar from "../../components/NavBar";
 
 export default function ProductsPage() {
   return (
     <>
-      <Products />
+      <NavBar />
+
+      <Col className={`{styles.container}`}>
+        <Row className={` mt-5 ${styles.container__row}`}>
+          <Col xs={12} sm={10} md={10}>
+            <Products />
+
+          </Col>
+        </Row>
+      </Col>
     </>
   );
 }
