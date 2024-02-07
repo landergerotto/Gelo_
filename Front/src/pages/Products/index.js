@@ -8,7 +8,7 @@ export default function ProductsPage() {
     <>
       <NavBar />
 
-      <Col className={`{styles.container}`}>
+      <Col className={`${styles.container}`}>
         <Row className={` mt-5 ${styles.container__row}`}>
           <Col xs={12} sm={10} md={10}>
             <Products />
