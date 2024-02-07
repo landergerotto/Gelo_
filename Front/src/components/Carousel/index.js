@@ -53,8 +53,8 @@ export default function CarouselHome() {
           fluid
         />{" "}
         <Carousel.Caption>
-          <h3>Switches Keyboards</h3>
-          <p>Switches for your Keyboard.</p>
+          <h3>Switches</h3>
+          <p>Switchs for your Keyboard.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

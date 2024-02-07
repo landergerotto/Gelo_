@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import { AlertProvider } from "./context/alert";
+import { NextUIProvider } from "@nextui-org/react";
 
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
@@ -12,6 +13,7 @@ import ProductsPage from "./pages/Products";
 function App() {
   return (
     <>
+    <NextUIProvider>
       <AlertProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -21,6 +23,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AlertProvider>
+    </NextUIProvider>
     </>
   );
 }
