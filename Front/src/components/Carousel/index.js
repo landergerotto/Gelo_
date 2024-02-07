@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import Switchs from "../../img/Carousel/Switchs.png";
+import Switches from "../../img/Carousel/Switches.png";
 import Housing from "../../img/Carousel/Housing.png";
 import Keyboard from "../../img/Carousel/Keyboard.png";
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
@@ -43,14 +43,14 @@ export default function CarouselHome() {
       <Carousel.Item>
         <img
           alt=""
-          src={Switchs}
+          src={Switches}
           width="600px"
           height="600px"
           className="d-inline-block align-top"
         />{" "}
         <Carousel.Caption>
-          <h3>Switchs Keyboards</h3>
-          <p>Switchs for your Keyboard.</p>
+          <h3>Switches Keyboards</h3>
+          <p>Switches for your Keyboard.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
