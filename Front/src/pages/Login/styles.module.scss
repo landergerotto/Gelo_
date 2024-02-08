@@ -1,0 +1,11 @@
+.container{
+    text-align: -webkit-center;
+    vertical-align: -webkit-baseline-middle;
+    background-color: rgb(245, 235, 217);
+    padding: 0 3rem;
+    width: auto;
+    height: 100vh;
+    &__row{
+        justify-content: center;
+    }
+}
