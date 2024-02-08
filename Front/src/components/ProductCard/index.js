@@ -1,6 +1,8 @@
+import Button from 'react-bootstrap/Button';
+
 import styles from "./styles.module.scss";
 
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ProductCard() {
   return (
@@ -33,12 +35,7 @@ export default function ProductCard() {
                 <span>R$ 0.00</span>
               </div>
               <div className={styles.time_left}>
-                <img
-                  src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png"
-                  alt="clock"
-                  className={styles.small_image}
-                />
-                <span>3 days left</span>
+              <Button variant="success">Add To Cart</Button>{' '}
               </div>
             </div>
           </main>

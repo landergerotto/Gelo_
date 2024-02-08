@@ -86,7 +86,7 @@ export default function Products() {
   return (
     <>
       <Container>
-        <Row xs={1} md={4} className="g-4">
+        <Row xs={1} md={2} lg={2} xl={3} xxl={4} className="g-4">
         {/* {Array.from(produtos).map((produto) => (
           <Col key={produto._id}>
             <Card>

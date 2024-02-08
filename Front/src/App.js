@@ -9,6 +9,7 @@ import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import NotFound from "./components/NotFound";
 import ProductsPage from "./pages/Products";
+import SingleProductPage from "./pages/SingleProduct";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/product/:id" element={<SingleProductPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AlertProvider>
