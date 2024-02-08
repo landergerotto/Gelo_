@@ -9,8 +9,6 @@ import Switches from "../../img/ProductHome/Switches.png"
 import Image from 'react-bootstrap/Image';
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function ProductsHome() {
   const navigate = useNavigate();
 
@@ -21,7 +19,7 @@ export default function ProductsHome() {
       <Row>
         <Col
           className={styled.backgroundcolor}
-          style={{ width: "100vw", height: "30vh" } }
+          style={{ width: "100vw", height: "auto" } }
         >
           <div style={{ marginLeft : "20%"}}>
             <h3>Keycaps</h3>
@@ -59,12 +57,13 @@ export default function ProductsHome() {
       <Row>
         <Col
           className={styled.backgroundcolor}
-          style={{ width: "100vw", height: "50vh" }}
+          style={{ width: "100vw", height: "auto" }}
         >
           <div style={{ marginLeft : "20%"}}>
             <h3>Housing</h3>
             <h6>Muita Qualidade Envolvida</h6>
               <Image
+                className={styled.image}
                 alt=""
                 src={Housing}
                 width="533px"

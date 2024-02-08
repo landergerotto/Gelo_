@@ -60,23 +60,23 @@ export default function LoginCard() {
 
   return (
     <Card className={styles.card}>
-      <Card.Header className={styles.card__header}>
-        <Card.Title>Login</Card.Title>
-      </Card.Header>
-      <Card.Body>
+      <Card.Body style={{backgroundColor: "#14253D", borderRadius: "30px"}}>
+          <Card.Title style={{color : "#cfcfcf", fontSize : "60px", marginBottom: "5%"}}><strong>Login</strong></Card.Title>
         <Form className={styles.card__form} onSubmit={handleSubmit}>
           <Form.Control
             value={email}
             placeholder="Insira seu e-mail"
             onChange={(e) => setEmail(e.target.value)}
+            style={{backgroundColor : "#cfcfcf"}}
           />
           <Form.Control
             value={pass}
             placeholder="Insira sua senha"
             onChange={(e) => setPass(e.target.value)}
+            style={{backgroundColor : "#cfcfcf"}}
           />
           <Container className={styles.card__form__container}>
-            <Button className={styles.card__form__button} type="submit">
+            <Button style={{backgroundColor : "#213B61", borderColor: "black", color : "#cfcfcf"}} className={styles.card__form__button} type="submit">
               Entrar
             </Button>
           </Container>

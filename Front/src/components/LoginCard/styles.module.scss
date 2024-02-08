@@ -1,9 +1,11 @@
 .card{
     position: relative;
     top: 25vh;
+    border-radius: 33px !important;
+    border-color: black !important;
     &__header{
         // border: none !important;
-        background-color: rgb(241, 241, 241) !important;
+        background-color: #14253D !important;
     }
     &__form{
         display: flex;

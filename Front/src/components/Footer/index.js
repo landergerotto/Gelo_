@@ -14,8 +14,8 @@ export default function Footer (){
                     <Image
                         alt=""
                         src={KeyboardLogo}
-                        width="200px"
-                        height="100px" 
+                        width="30%"
+                        height="auto%" 
                         className="d-inline-block align-top"
                         fluid
                     />{" "}

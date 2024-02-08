@@ -4,7 +4,7 @@ import Switches from "../../img/Carousel/Switches.png";
 import Housing from "../../img/Carousel/Housing.png";
 import Keyboard from "../../img/Carousel/Keyboard.png";
 import Image from 'react-bootstrap/Image';
-
+import styles from './styles.module.scss';
 
 export default function CarouselHome() {
   const [index, setIndex] = useState(0);
@@ -33,7 +33,7 @@ export default function CarouselHome() {
       <Image
           alt=""
           src={Housing}
-          width="1067"
+          width="1067px"
           height="600px"
           className="d-inline-block align-top"
           fluid
@@ -47,9 +47,9 @@ export default function CarouselHome() {
         <Image
           alt=""
           src={Switches}
-          width="600px"
+          width="600px" 
           height="600px"
-          className="d-inline-block align-top"
+          className={`d-inline-block align-top ${styles.image}`}
           fluid
         />{" "}
         <Carousel.Caption>
