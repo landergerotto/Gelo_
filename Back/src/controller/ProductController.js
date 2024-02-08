@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs')
-const Product = require('../model/product')
+const Product = require('../model/product');
+const { error } = require('console');
 // const User = require('../model/login');
 
 class ProductController {
@@ -32,6 +33,7 @@ class ProductController {
                 description,
                 price,
                 bought: [],
+                color: [],
                 type,
                 createdAt: Date.now(),
                 updatedAt: Date.now(),
@@ -101,6 +103,17 @@ class ProductController {
         } catch (error) {
             throw error;
         }
+    }
+
+    static async getProduct(_id)
+    {
+        try {
+            const products = await Product.findById(_id);
+            return res.status(200).send(products);
+        } catch {
+            throw error;
+        }
+
     }
 }
 

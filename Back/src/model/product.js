@@ -16,6 +16,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    color: [{
+        type : String,
+        required: true
+    }],
     bought: [{
         type: userSchema,
         required: false
