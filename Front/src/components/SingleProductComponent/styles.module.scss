@@ -3,19 +3,23 @@
 }
 
 // $textColor: #444444;
-$textColor: white;
+$textColor: #FEF1E0;
 $gray: #bbb;
-$bg: #0D192B;
+// $bg: #0D192B;
+$bg: #001119;
 // $pgb: #42c8cb;
 // $pgt: #6bffc8;
 // $pgt: #ffffff;
 // $pgb: #F8D4AC;
-$pgt: #004177;
-$pgb: #246E6F;
+$pgt: #17242A;
+$pgb: #3c4653;
 // #FF3D6F
 $dot: #349a98;
-$bgb: #ff4164;
-$bgt: #ff886b;
+// $bgb: #ff4164;
+// $bgt: #ff886b;
+$bgb: #00fd00;
+$bgt: #1bd303;
+$cardbg: #0F1E27;
 $bdot1: #59e8c8;
 $bdot2: #ffee71;
 $bdot3: #6654af;
@@ -83,7 +87,7 @@ $discount: #fe6168;
   }
   &_details {
     padding: 40px;
-    background-color: #14253D;
+    background-color: $cardbg;
     border-radius: 0 0 20px 20px;
     &_title {
       text-transform: uppercase;
