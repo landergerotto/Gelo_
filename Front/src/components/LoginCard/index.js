@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
-import { Button, Card, Container, Form } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { AlertContext } from "../../context/alert";
+import Image from 'react-bootstrap/Image';
+import Perfil from "../../img/Login/perfil.png"
+
 
 import axios from "axios";
 import { SECRET } from "../../env";
@@ -59,29 +62,41 @@ export default function LoginCard() {
   }
 
   return (
-    <Card className={styles.card}>
-      <Card.Body style={{backgroundColor: "#14253D", borderRadius: "30px"}}>
-          <Card.Title style={{color : "#cfcfcf", fontSize : "60px", marginBottom: "5%"}}><strong>Login</strong></Card.Title>
-        <Form className={styles.card__form} onSubmit={handleSubmit}>
-          <Form.Control
-            value={email}
-            placeholder="Insira seu e-mail"
-            onChange={(e) => setEmail(e.target.value)}
-            style={{backgroundColor : "#cfcfcf"}}
-          />
-          <Form.Control
-            value={pass}
-            placeholder="Insira sua senha"
-            onChange={(e) => setPass(e.target.value)}
-            style={{backgroundColor : "#cfcfcf"}}
-          />
-          <Container className={styles.card__form__container}>
-            <Button style={{backgroundColor : "#213B61", borderColor: "black", color : "#cfcfcf"}} className={styles.card__form__button} type="submit">
-              Entrar
-            </Button>
-          </Container>
-        </Form>
-      </Card.Body>
-    </Card>
+      <Card className={styles.bigcard} style={{ justifyContent: "center", display: "flex", alignItems: "center"}}>
+        <Col xs={{offset: "0"}} sm={{offset: "2"}} md={{offset: "4"}}>
+        <Card className={styles.card} style={{backgroundColor: "black"}}>
+          <Card.Body style={{backgroundColor: "#696768", borderRadius: "30px", marginTop: "8vh", marginBottom: "8vh"}}>
+              <Card.Title style={{}}>
+                <Image
+                alt=""
+                src={Perfil}
+                width="128px"
+                height="128px"
+                fluid
+                />
+              </Card.Title>
+            <Form className={styles.card__form} onSubmit={handleSubmit}>
+              <Form.Control
+                value={email}
+                placeholder="Insira seu e-mail"
+                onChange={(e) => setEmail(e.target.value)}
+                style={{backgroundColor : "#cccccc"}}
+              />
+              <Form.Control
+                value={pass}
+                placeholder="Insira sua senha"
+                onChange={(e) => setPass(e.target.value)}
+                style={{backgroundColor : "#CCCCCC"}}
+              />
+              <Container className={styles.card__form__container}>
+                <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} className={styles.card__form__button} type="submit">
+                  Login
+                </Button>
+              </Container>
+            </Form>
+          </Card.Body>
+        </Card>
+        </Col>
+      </Card>
   );
 }

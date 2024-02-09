@@ -3,6 +3,8 @@ import { Button, Card, Container, Form } from "react-bootstrap";
 import axios from "axios";
 import styles from "./styles.module.scss";
 import { AlertContext } from "../../context/alert";
+import Image from 'react-bootstrap/Image';
+
 
 import { SECRET } from "../../env";
 import CryptoJS from "crypto-js";

@@ -13,6 +13,9 @@ export default function AlertComponent() {
       variant={variant}
       onClose={() => setShow(false)}
       dismissible
+      style={{
+        position: "relative"
+      }}
     >
       <p className={styles.alert}>{message}</p>
     </Alert>
