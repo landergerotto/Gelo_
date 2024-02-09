@@ -14,6 +14,8 @@ font-family: 'Outfit', sans-serif;
 Variables
 ========================
 */
+$bgb: #00fd00;
+$bgt: #1bd303;
 
 :root {
   font-size: 18px;
@@ -23,9 +25,9 @@ Variables
   --var-cyan: hsl(178, 100%, 50%);
   /* Neutral */
   --var-main-darkest: hsl(217, 54%, 11%);
-  --var-card-dark: hsl(216, 50%, 16%);
+  --var-card-dark: #0F1E27;
   --var-line-dark: hsl(215, 32%, 27%);
-  --var-lightest: white;
+  --var-lightest: #FEF1E0;
 
   /* Fonts */
 
@@ -147,6 +149,21 @@ a.hero_image_container {
   display: block;
 }
 
+.time_left > 
+  button{
+  display: flex;
+  border: 0;
+  padding: 10px 15px;
+  align-items: center;
+  border-radius: 7px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, $bgt 0%, $bgb 100%);
+  box-shadow: 0 10px 30px 0 rgba($bgt, 0.7);
+  transition: 200ms;
+  &:hover {
+    background: linear-gradient(to bottom, $bgb 0%, $bgt 100%);
+  }
+}
 /* Details */
 
 img.eye {

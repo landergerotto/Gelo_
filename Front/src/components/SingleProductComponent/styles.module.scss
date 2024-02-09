@@ -2,14 +2,24 @@
   font-family: "Oswald", sans-serif;
 }
 
-$textColor: #444444;
+// $textColor: #444444;
+$textColor: #FEF1E0;
 $gray: #bbb;
-$bg: whitesmoke;
-$pgb: #42c8cb;
-$pgt: #6bffc8;
+// $bg: #0D192B;
+$bg: #001119;
+// $pgb: #42c8cb;
+// $pgt: #6bffc8;
+// $pgt: #ffffff;
+// $pgb: #F8D4AC;
+$pgt: #17242A;
+$pgb: #3c4653;
+// #FF3D6F
 $dot: #349a98;
-$bgb: #ff4164;
-$bgt: #ff886b;
+// $bgb: #ff4164;
+// $bgt: #ff886b;
+$bgb: #00fd00;
+$bgt: #1bd303;
+$cardbg: #0F1E27;
 $bdot1: #59e8c8;
 $bdot2: #ffee71;
 $bdot3: #6654af;
@@ -25,12 +35,16 @@ $discount: #fe6168;
   }
 }
 
-body {
+.body {
   background-color: $bg;
   height: 100vh;
   margin: auto;
   display: flex;
   color: $textColor;
+  a {
+    text-decoration: none;
+    color: $gray;
+  }
 }
 
 .container {
@@ -42,19 +56,15 @@ body {
   align-items: center;
 }
 
-h5 {
+.h5 {
   text-transform: uppercase;
   margin: 0;
   font-size: 14px;
 }
-ul {
+.ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-a {
-  text-decoration: none;
-  color: $gray;
 }
 
 .product {
@@ -77,29 +87,29 @@ a {
   }
   &_details {
     padding: 40px;
-    background-color: white;
+    background-color: $cardbg;
     border-radius: 0 0 20px 20px;
-    .title {
+    &_title {
       text-transform: uppercase;
       margin: 0;
     }
-    .colorCat {
+    &_colorCat {
       text-transform: uppercase;
       font-style: italic;
       color: $gray;
       font-weight: 700;
       font-size: 14px;
     }
-    .price {
+    &_price {
       font-weight: 700;
       margin-top: 5px;
       font-size: 18px;
-      .current {
+      &_current {
         color: $discount;
         margin-left: 6px;
       }
     }
-    .before {
+    &_before {
       text-decoration: line-through;
     }
     header {
@@ -117,12 +127,12 @@ a {
         line-height: 1.6;
       }
     }
-    .controls {
+    &_controls {
       margin: 3em 0;
       > div {
         flex: 1;
       }
-      .option {
+      &_option {
         margin-top: 12px;
         display: inline-block;
         position: relative;
@@ -152,10 +162,10 @@ a {
         margin: 15px 5px;
       }
     }
-    .color li + li {
+    &_color li + li {
       margin-left: 15px;
     }
-    .colors {
+    &_colors {
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -164,7 +174,7 @@ a {
     $colors-list: $bdot1 $bdot2 $bdot3 $bdot4 $bdot5;
     @each $current-color in $colors-list {
       $i: index($colors-list, $current-color);
-      .color_bdot#{$i} {
+      &_color_bdot#{$i} {
         background-color: $current-color;
         &:hover,
         &.active {
@@ -172,7 +182,7 @@ a {
         }
       }
     }
-    .rate {
+    &_rate {
       position: static;
       margin-top: 10px;
       a {
@@ -248,26 +258,31 @@ a {
 }
 
 @include bp(600) {
-  .product-details {
-    .rate {
+  .product_details {
+    &_rate {
       position: absolute;
       top: 12px;
       right: 10px;
       margin-top: 0;
     }
-    .controls > div {
-      &.qty {
+    &_controls > div {
+      .qty {
         width: 60px;
       }
     }
-    .controls > div + div {
+    &_controls > div {
+      .size {
+        width: 80px;
+      }
+    }
+    &_controls > div + div  {
       border-left: 2px solid rgba($gray, 0.5);
       padding-left: 25px;
-      padding-right: 25px;
-      width: 100px;
+      padding-right: 50px;
+      width: 120px;
       margin-top: 0;
     }
-    .controls {
+    &_controls {
       display: flex;
     }
   }
@@ -280,15 +295,15 @@ a {
     align-items: normal;
     margin: auto;
   }
-  .product-image {
+  .product_image {
     border-radius: 20px 0 0 20px;
     max-width: 330px;
   }
-  .product-pic {
+  .product_pic {
     left: -40px;
     max-width: 330px;
   }
-  .product-details {
+  .product_details {
     width: 100%;
     border-radius: 0 20px 20px 0;
   }
