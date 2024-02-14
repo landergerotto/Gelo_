@@ -5,23 +5,24 @@ export const DecoderContext = React.createContext();
 DecoderContext.displayName = "Challenge";
 
 export const DecoderProvider = ({ children }) => {
-  const [jwtoken, setJwt] = useState({});
-  
-  function decoder ()
+  const [jwtoken, setJwtoken] = useState({});
+
+  function decode ()
   {
     const token = sessionStorage.getItem("token");
     const decodeToken = jwt.jwtDecode(token);
-    setJwt(decodeToken);
-    console.log(decodeToken);
+    setJwtoken(decodeToken);
+    // console.log(decodeToken);
     // const { exp } = decodeToken;
   }
 
-  function Rdecoder ()
+  function Rdecode ()
   {
+    console.log("pog");
     const token = sessionStorage.getItem("token");
     const decodeToken = jwt.jwtDecode(token);
-    setJwt(decodeToken);
-    console.log(decodeToken);
+    setJwtoken(decodeToken);
+    // console.log(decodeToken);
     return decodeToken;
     // const { exp } = decodeToken;
   }
@@ -31,9 +32,9 @@ export const DecoderProvider = ({ children }) => {
     <DecoderContext.Provider
       value={{
         jwt: jwtoken,
-        setJwt: setJwt,
-        decoder,
-        Rdecoder
+        setJwt: setJwtoken,
+        decode,
+        Rdecode
       }}
     >
       {children}

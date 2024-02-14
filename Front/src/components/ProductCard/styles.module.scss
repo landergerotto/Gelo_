@@ -17,6 +17,9 @@ Variables
 $bgb: #00fd00;
 $bgt: #1bd303;
 
+$bgb2: #fd0000;
+$bgt2: #d30303;
+
 :root {
   font-size: 18px;
 
@@ -140,8 +143,24 @@ div.coin_base,
 }
 
 .card_attribute {
-  padding-bottom: 1.5em;
+  justify-content: center;
+  // padding-bottom: 1.5em;
+  align-items: center;
   border-top: 2px solid var(--var-line-dark);
+  button{
+    display: flex;
+    border: 0;
+    padding: 10px 15px;
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer;
+    background: linear-gradient(to bottom, $bgt2 0%, $bgb2 100%);
+    box-shadow: 0 10px 30px 0 rgba($bgt2, 0.7);
+    transition: 200ms;
+    &:hover {
+      background: linear-gradient(to bottom, $bgb2 0%, $bgt2 100%);
+    }
+  }
 }
 
 a.hero_image_container {
