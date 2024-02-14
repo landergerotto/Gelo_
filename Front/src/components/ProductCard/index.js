@@ -4,12 +4,15 @@ import styles from "./styles.module.scss";
 
 import { Link } from "react-router-dom";
 
-export default function ProductCard() {
+export default function ProductCard(props) {
+
+  // console.log(props)
+
   return (
     <>
       {/* <body> */}
         <div className={styles.card_container}>
-          <Link to="/" className={styles.hero_image_container}>
+          <Link to={`/product/${props.id}`} className={styles.hero_image_container}>
             <div className={styles.img}>
             <img
               className={styles.hero_image}
@@ -21,10 +24,10 @@ export default function ProductCard() {
           </Link>
           <main className={styles.main_content}>
             <h1>
-              <Link to="/" className={styles.a}>Equilibrium #3429</Link>
+              <Link to={`/product/${props.id}`} className={styles.a}>Equilibrium #3429</Link>
             </h1>
             <hr></hr>
-            <p>Our Equilibrium collection promotes balance and calm.</p>
+            {/* <p>Our Equilibrium collection promotes balance and calm.</p> */}
             <div className={styles.flex_row}>
               <div className={styles.coin_base}>
                 <img
