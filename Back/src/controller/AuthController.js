@@ -88,6 +88,7 @@ class AuthControler {
       const token = jwt.sign(
         {
           id: user._id,
+          adm: user.adm
         },
         secret,
         {

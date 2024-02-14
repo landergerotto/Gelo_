@@ -12,7 +12,7 @@ export default function ProtectedRoute({ errorPage, targetPage, func }) {
     }
 
     const decodeToken = jwt.jwtDecode(token);
-    console.log(decodeToken);
+    console.log(decodeToken.adm);
     const { exp } = decodeToken;
 
     if (exp + "000" - Date.now() <= 0) {
