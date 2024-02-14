@@ -7,20 +7,22 @@ import axios from "axios";
 
 import { DecoderContext } from "../../context/decoder";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard(props) {
   const [jwt, setJwt] = useState();
   const { jwtoken, setJwtoken, decode, Rdecode } = useContext(DecoderContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Rdecode()
     setJwt(Rdecode());
-    // console.log(jwt.adm)
+    console.log(props)
   }, []);
 
   function RenderAdm() {
     if (jwt == undefined) return;
-    console.log(jwt.adm);
+    // console.log(jwt.adm);
 
     // if (jwt.adm)
       return (
@@ -36,12 +38,13 @@ export default function ProductCard(props) {
 
   const DeleteOnClick = async () => {
     console.log("a");
-    const res = await axios.delete("http://localhost:8080/api/product/65ccb7cbe7b45aeaf4a0bb9a", {
+    const res = await axios.delete(`http://localhost:8080/api/product/${props.id}`, {
       id: "65ccb7cbe7b45aeaf4a0bb9a",
       sla: "ajuda",
     });
     console.log(res);
     // alterar para /home
+    window.location.reload(false)
   };
 
   return (
@@ -63,7 +66,7 @@ export default function ProductCard(props) {
         <main className={styles.main_content}>
           <h1>
             <Link to={`/product/${props.id}`} className={styles.a}>
-              Equilibrium #3429
+              {props.produto.name}
             </Link>
           </h1>
           <hr></hr>
@@ -75,7 +78,7 @@ export default function ProductCard(props) {
                 alt="Ethereum"
                 className={styles.small_image}
               />
-              <span>R$ 0.00</span>
+              <span>R$ {props.produto.price.toFixed(2)}</span>
             </div>
             <div className={styles.time_left}>
               <Button variant="success">Add To Cart</Button>{" "}

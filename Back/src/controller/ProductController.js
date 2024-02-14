@@ -18,7 +18,7 @@ class ProductController {
         console.log("lesgoooo fomigaa")
         // return res.status(201).send({ message: "FOMIGAAAAAA"});
 
-        const { name, description, price, type } = req.body;
+        const { name, description, color, price, type } = req.body;
 
         console.log(req.body)
 
@@ -29,13 +29,17 @@ class ProductController {
         if (description.length < 15)
             return res.status(400).send({ message: "a descricao do produto não pode ser menor que 15 caracteres" });
 
+        var col = []
+        if (color.length > 0)
+        col = color
+
         try {
             const product = {
                 name,
                 description,
                 price,
                 bought: [],
-                color: [],
+                color: col,
                 type,
                 createdAt: Date.now(),
                 updatedAt: Date.now(),
@@ -66,8 +70,28 @@ class ProductController {
 
     static async getAllProducts(req, res)
     {
-        const products = await Product.find();
-        return res.status(200).send(products);
+        try {
+            const products = await Product.find();
+            return res.status(200).send(products)
+            
+        } catch (error) {
+            return res.status(500).send({error: "Falha ao encontrar produto", data: error.message })
+            
+        }
+    }
+
+    static async getProduct(req, res)
+    {
+        console.log("POGGETS")
+        const { id } = req.params;
+        try {
+            const products = await Product.findById(id);
+            return res.status(200).send(products);
+            
+        } catch (error) {
+            return res.status(500).send({error: "Falha ao encontrar produto", data: error.message })
+            
+        }
     }
 
     static async getArticle(_id) {
@@ -83,7 +107,7 @@ class ProductController {
         }
     }
 
-    static async getProduct(_id)
+    static async getProductInternal(_id)
     {
         try {
             const products = await Product.findById(_id);

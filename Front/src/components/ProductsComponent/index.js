@@ -21,7 +21,6 @@ export default function Products() {
   const [produtos, setProdutos] = useState([]);
   const [jwt, setJwt] = useState();
   const { jwtoken, setJwtoken, decode, Rdecode} = useContext(DecoderContext);
-  // decode()
 
   // console.log(props)
 
@@ -63,9 +62,11 @@ export default function Products() {
     <>
       <Container>
         <Row xs={1} md={2} lg={2} xl={3} xxl={4} className="g-4">
-          {Array.from({ length: 10 }).map((item, idx) => (
-            <Col key={idx}>
-              <ProductCard id={idx} />
+          {Array.from(produtos).map((item) => (
+            <Col key={item._id}>
+              <ProductCard 
+              id={item._id}
+              produto={item} />
             </Col>
           ))}
         </Row>

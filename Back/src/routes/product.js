@@ -4,6 +4,7 @@ const route = express.Router();
 
 route
     .get('/', ProductController.getAllProducts)
+    .get('/:id', ProductController.getProduct)
     .post('/', ProductController.create)
     .delete("/:id", ProductController.delete)
     
