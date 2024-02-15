@@ -1,4 +1,4 @@
-const {User} = require("../model/user");
+const { User } = require("../model/user");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const CryptoJS = require("crypto-js");
@@ -6,13 +6,12 @@ const CryptoJS = require("crypto-js");
 class AuthControler {
   static async register(req, res) {
     // const { name, email, password, adm, confirmPassword } = req.body;
-
     
+    // console.log(req.body)
+
     var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
     const decryptd = bytes.toString(CryptoJS.enc.Utf8);
     const json = JSON.parse(decryptd);
-    
-    console.log(json)
 
     const { name, email, password, adm, confirmPassword } = json;
 
@@ -44,11 +43,13 @@ class AuthControler {
       updatedAt: Date.now(),
       removedAt: null,
     });
-
+    
     try {
+      // console.log(user); 
       await User.create(user);
       res.status(201).send({ message: "Usuário cadastrado com sucesso" });
     } catch (error) {
+      console.log(user); 
       return res
         .status(500)
         .send({ message: "Something failed", data: error.message });
@@ -75,6 +76,7 @@ class AuthControler {
     if (!user)
       return res.status(422).json({ message: "Usuário e/ou senha inválido" });
 
+    // console.log(json);
     bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET);
     const decrypted2 = bytes.toString(CryptoJS.enc.Utf8);
 
@@ -86,6 +88,7 @@ class AuthControler {
       const token = jwt.sign(
         {
           id: user._id,
+          adm: user.adm
         },
         secret,
         {
@@ -100,4 +103,5 @@ class AuthControler {
     }
   }
 }
+
 module.exports = AuthControler;

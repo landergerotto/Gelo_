@@ -4,6 +4,8 @@ import Switches from "../../img/Carousel/Switches.png";
 import Housing from "../../img/Carousel/Housing.png";
 import Keyboard from "../../img/Carousel/Keyboard.png";
 import Image from 'react-bootstrap/Image';
+import styles from './styles.module.scss';
+import { i18n } from "../../translation/i18n"
 
 
 export default function CarouselHome() {
@@ -25,36 +27,36 @@ export default function CarouselHome() {
           fluid
         />{" "}
         <Carousel.Caption>
-          <h3>Keyboard Styles</h3>
-          <p>Style your keyboard your way</p>
+          <h3>{i18n.t("Carousel.KeyboardStyle")}</h3>
+          <p>{i18n.t("Carousel.KeyboardStyletext")}</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
       <Image
           alt=""
           src={Housing}
-          width="1067"
+          width="1067px"
           height="600px"
           className="d-inline-block align-top"
           fluid
         />{" "}
         <Carousel.Caption>
-          <h3>Housing Keyboards</h3>
-          <p>Housing styled for you</p>
+          <h3>{i18n.t("Carousel.KeyboardCases")}</h3>
+          <p>{i18n.t("Carousel.KeyboardCasestext")}</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <Image
           alt=""
           src={Switches}
-          width="600px"
+          width="600px" 
           height="600px"
-          className="d-inline-block align-top"
+          className={`d-inline-block align-top ${styles.image}`}
           fluid
         />{" "}
         <Carousel.Caption>
-          <h3>Switches</h3>
-          <p>Switchs for your Keyboard.</p>
+          <h3>{i18n.t("Carousel.Switches")}</h3>
+          <p>{i18n.t("Carousel.Switchestext")}</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

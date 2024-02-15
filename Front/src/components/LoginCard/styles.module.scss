@@ -1,9 +1,15 @@
 .card{
     position: relative;
-    top: 25vh;
+    border-radius: 33px !important;
+    width: 40% Import !important;
+    margin-top: 40%;
+    margin-bottom: 40%;
+    border: none;
+
+
     &__header{
         // border: none !important;
-        background-color: rgb(241, 241, 241) !important;
+        background-color: #14253D !important;
     }
     &__form{
         display: flex;
@@ -16,4 +22,14 @@
             width: 80%;
         }
     }
+}
+
+.bigcard{
+    position: relative;
+    top: 5vh;
+    background-image: url("./../../img/Login/Background.png") !important;
+    background-repeat: no-repeat;
+    background-size: 80vw 80vh;
+    border: none;
+
 }

@@ -10,9 +10,21 @@ import LogoBrasil from "../../img/NavBar/Flags/Brasil.png";
 import LogoEUA from "../../img/NavBar/Flags/EUA.png";
 import Perfil from "../../img/NavBar/Perfil.png";
 import Image from 'react-bootstrap/Image';
+import { i18n } from "../../translation/i18n"
+
 
 
 export default function NavBar() {
+  const I18N_STORAGE_KEY = 'i18nextLng'
+  
+  const handleLanguage = language => {
+    localStorage.setItem(
+      I18N_STORAGE_KEY,
+      language
+      )
+    window.location.reload(false)
+  }
+
   return (
     <Navbar className={styles.background} collapseOnSelect expand="lg" >
       <Container>
@@ -26,7 +38,7 @@ export default function NavBar() {
             className="d-inline-block align-top"
             fluid
           />{" "}
-          TamanduaKeys
+          {i18n.t("navbar.TamanduaKeys")}
           </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -34,21 +46,23 @@ export default function NavBar() {
           <Nav className="me-auto">
           </Nav>
           <Nav style={{display: "flex", justifyContent: "center", alignItems : "center"}}>
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/products">Products</Nav.Link>
-            <Nav.Link href="#deets" >About Us</Nav.Link>
-            <NavDropdown title="Language" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
+            <Nav.Link as={Link} to="/">{i18n.t("navbar.Home")}</Nav.Link>
+            <Nav.Link as={Link} to="/products">{i18n.t("navbar.Products")}</Nav.Link>
+            <Nav.Link as={Link} to="/cart" >{i18n.t("navbar.Cart")}</Nav.Link>
+            <NavDropdown title={i18n.t("navbar.Language")} id="collapsible-nav-dropdown">
+              <NavDropdown.Item onClick={(e) => {handleLanguage("en-US")}}>
                 <Image        
                 alt=""
                 src={LogoEUA}
                 width="32px"
                 height="32px" 
                 fluid
-                style={{marginRight: "10%"}} />
-                English
+                style={{marginRight: "10%"}} 
+                value = "en-US"/>
+                
+                {i18n.t("navbar.English")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item onClick={(e) => {handleLanguage("pt-BR")}}>
               <Image        
                 alt=""
                 src={LogoBrasil}
@@ -56,17 +70,29 @@ export default function NavBar() {
                 height="32px" 
                 fluid 
                 style={{marginRight: "10%"}} />
-                Portugues
+                {i18n.t("navbar.Portuguese")}
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#home" style={{paddingTop: "5%"}}>
-                <Image 
-                    alt=""
-                    src={Perfil}
-                    width="32px"
-                    height="32px"
-                    fluid/>
-            </Nav.Link>
+
+            <NavDropdown title={
+            <Image 
+            alt=""
+            src={Perfil}
+            width="32px"
+            height="32px"
+            fluid/>
+            } id="collapsible-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/register">
+                <div>
+                  {i18n.t("navbar.Register")}
+                </div>
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/login">
+              <div>
+                  {i18n.t("navbar.Login")}
+              </div>
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

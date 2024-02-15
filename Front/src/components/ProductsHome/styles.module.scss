@@ -6,3 +6,10 @@
     text-align: center;
     padding-top: 2%;
 }
+
+.image{
+    width: 600px;
+    @media (max-width: 768px) {
+        width: 232px;
+    }
+}

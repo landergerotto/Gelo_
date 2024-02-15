@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs')
-const Product = require('../model/product')
+const Product = require('../model/product');
+const { error } = require('console');
 // const User = require('../model/login');
 
 class ProductController {
@@ -17,7 +18,9 @@ class ProductController {
         console.log("lesgoooo fomigaa")
         // return res.status(201).send({ message: "FOMIGAAAAAA"});
 
-        const { name, description, price, type } = req.body;
+        const { name, description, color, price, type } = req.body;
+
+        console.log(req.body)
 
         if (!name || !description || !price || !type)
             return res.status(400).send({ message: "os campos não podem estarem vazios " });
@@ -26,12 +29,18 @@ class ProductController {
         if (description.length < 15)
             return res.status(400).send({ message: "a descricao do produto não pode ser menor que 15 caracteres" });
 
+        var col = []
+        if (color.length > 0)
+        col = color
+
         try {
             const product = {
                 name,
                 description,
                 price,
                 bought: [],
+                color: col,
+                qty: 1,
                 type,
                 createdAt: Date.now(),
                 updatedAt: Date.now(),
@@ -47,47 +56,43 @@ class ProductController {
         }
     };
 
-    static async likeArticle(req, res) {
-
-        const { artId } = req.params;
-        const { userId } = req.body;
-
-        if (!artId)
-            return res.status(400).send({ message: "No article id provider" })
-
-        if (!userId)
-            return res.status(400).send({ message: "No user id provider" })
+    static async delete(req, res) {
+        const { id } = req.params;
+        // console.log(req.params)
 
         try {
-            const user = await User.findById(userId);
-            const article = await Article.findById(artId);
-
-            if (user.liked != null) {
-                if (user.liked.includes(artId)) {
-                    user.liked = user.liked.filter( (item) => item != artId )
-
-                    await Article.findByIdAndUpdate({ _id: artId }, { likes: --article.likes })
-                    await User.findByIdAndUpdate({ _id: userId }, { liked: user.liked })
-                    return res.status(200).send();
-                }
-        }
-            
-            user.liked.push(artId)
-
-            await Article.findByIdAndUpdate({ _id: artId }, { likes: ++article.likes })
-            await User.findByIdAndUpdate({ _id: userId }, { liked: user.liked })
-
-            return res.status(200).send();
+            await Product.findByIdAndDelete(id)
+            return res.status(201).send({ message: "Produto deletado com sucesso" })
         } catch (error) {
-            ArticleController.createLog(error);
-            return res.status(500).send({ error: "Falha ao curtir", data: error.message })
+            return res.status(500).send({ error: "Falha ao deletar o produto", data: error.message });
+            
         }
     }
 
     static async getAllProducts(req, res)
     {
-        const products = await Product.find();
-        return res.status(200).send(products);
+        try {
+            const products = await Product.find();
+            return res.status(200).send(products)
+            
+        } catch (error) {
+            return res.status(500).send({error: "Falha ao encontrar produto", data: error.message })
+            
+        }
+    }
+
+    static async getProduct(req, res)
+    {
+        console.log("POGGETS")
+        const { id } = req.params;
+        try {
+            const products = await Product.findById(id);
+            return res.status(200).send(products);
+            
+        } catch (error) {
+            return res.status(500).send({error: "Falha ao encontrar produto", data: error.message })
+            
+        }
     }
 
     static async getArticle(_id) {
@@ -101,6 +106,17 @@ class ProductController {
         } catch (error) {
             throw error;
         }
+    }
+
+    static async getProductInternal(_id)
+    {
+        try {
+            const products = await Product.findById(_id);
+            return res.status(200).send(products);
+        } catch {
+            throw error;
+        }
+
     }
 }
 

@@ -10,10 +10,21 @@ const orderSchema = new mongoose.Schema({
         required: true,
         minlength: 3
     },
-    itemId: [{
-        type: String,
-        required: true,
-        minlength: 6
+    product: [{
+        Id: {
+            type: String,
+            required: true,
+            minlength: 6
+        },
+        Color : {
+            type: String,
+            required: true,
+        },
+        Qty : {
+            type: Number,
+            require: true
+        }
+
     }],
     createdAt: {
         type: Date,

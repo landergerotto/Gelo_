@@ -4,5 +4,7 @@ const route = express.Router();
 
 route
     .post('/', OrderController.create)
+    .patch('/')
+
     
 module.exports = route;

@@ -5,13 +5,13 @@ import LoginCard from "../../components/LoginCard";
 
 export default function LoginPage() {
   return (
-    <Col className={styles.container}>
-      <Row className={styles.container__row}>
-        <Col xs={12} sm={8} md={4}>
-          <AlertComponent />
-          <LoginCard />
-        </Col>
-      </Row>
-    </Col>
+      <Col className={styles.container}>
+        <Row className={styles.container__row}>
+          <Col xs={12} sm={10} md={10}>
+            <AlertComponent />
+            <LoginCard />
+          </Col>
+        </Row>
+      </Col>
   );
 }

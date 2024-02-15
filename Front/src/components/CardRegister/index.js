@@ -3,12 +3,19 @@ import { Button, Card, Container, Form } from "react-bootstrap";
 import axios from "axios";
 import styles from "./styles.module.scss";
 import { AlertContext } from "../../context/alert";
+import Image from 'react-bootstrap/Image';
+import { i18n } from "../../translation/i18n"
+
+
 
 import { SECRET } from "../../env";
 import CryptoJS from "crypto-js";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterCard() {
   const { setMessage, setShow, setVariant } = useContext(AlertContext);
+  const navigate = useNavigate();
+
 
   var [name, setName] = useState("");
   var [email, setEmail] = useState("");
@@ -83,55 +90,55 @@ export default function RegisterCard() {
       setEmail("");
       setPassword("");
       setConfirmPass("");
+
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
   }
 
   return (
-    <Card className={styles.card}>
-      <Card.Header className={styles.card__header}>
-        <Card.Title>Registrar-se</Card.Title>
-      </Card.Header>
-      <Card.Body>
+    <Card className={styles.card} style={{borderRadius : "30", borderColor: "black"}}>
+      <Card.Body style={{backgroundColor: "#202020"}}>
+      <Card.Title style={{color : "#cfcfcf", fontSize : "60px", marginBottom: "5%"}}><strong>{i18n.t("Register.register")}</strong></Card.Title>
         <Form className={styles.card__form} onSubmit={handleSubmit}>
           <Container className={styles.card__form__input}>
-            <Form.Label>Insira seu nome</Form.Label>
             <Form.Control
-              placeholder="Nome Completo"
+              placeholder={i18n.t("Register.name")}
               value={name}
               onChange={(e) => setName(e.target.value)}
+              style={{backgroundColor : "#cfcfcf"}}
             />
           </Container>
           <Container className={styles.card__form__input}>
-            <Form.Label>Insira seu e-mail</Form.Label>
             <Form.Control
-              placeholder="E-mail"
+              placeholder={i18n.t("Register.email")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              style={{backgroundColor : "#cfcfcf"}}
             />
           </Container>
           <Container className={styles.card__form__input}>
-            <Form.Label>Insira sua senha</Form.Label>
             <Form.Control
-              placeholder="Senha"
-              type="password"
+              placeholder={i18n.t("Register.password")}
+              type="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              style={{backgroundColor : "#cfcfcf"}}
             />
           </Container>
           <Container className={styles.card__form__input}>
-            <Form.Label>Confirme sua senha</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Confirme a Senha"
+              placeholder={i18n.t("Register.confirmPassword")}
               value={confirmPass}
               onChange={(e) => setConfirmPass(e.target.value)}
+              style={{backgroundColor : "#cfcfcf"}}
             />
           </Container>
           <Container>
-            <Button className={styles.card__form__button} type="submit">
-              Cadastrar
+            <Button className={styles.card__form__button} style={{backgroundColor : "#5D5D5D", borderColor: "black", color : "white"}} type="submit">
+            {i18n.t("Register.register")}
             </Button>
           </Container>
         </Form>

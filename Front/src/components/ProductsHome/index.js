@@ -8,8 +8,7 @@ import Housing from "../../img/ProductHome/Housing.png"
 import Switches from "../../img/ProductHome/Switches.png"
 import Image from 'react-bootstrap/Image';
 import { useNavigate } from "react-router-dom";
-
-
+import { i18n } from "../../translation/i18n";
 
 export default function ProductsHome() {
   const navigate = useNavigate();
@@ -17,15 +16,15 @@ export default function ProductsHome() {
 
   return (
     <Container fluid className={styled.title}>
-        <h1 className={styled.backgroundcolortitle}>Products</h1>
+        <h1 className={styled.backgroundcolortitle}>{i18n.t("Products.Products")}</h1>
       <Row>
         <Col
           className={styled.backgroundcolor}
-          style={{ width: "100vw", height: "30vh" } }
+          style={{ width: "100vw", height: "auto" } }
         >
           <div style={{ marginLeft : "20%"}}>
-            <h3>Keycaps</h3>
-            <h6>Muita Qualidade Envolvida</h6>
+            <h3>{i18n.t("Products.Keycaps")}</h3>
+            <h6>{i18n.t("Products.Keycapstext")}</h6>
               <Image
                 alt=""
                 src={Keycaps}
@@ -41,8 +40,8 @@ export default function ProductsHome() {
         </Col>
         <Col className={styled.backgroundcolor}>
           <div style={{ marginRight : "20%"}}>
-            <h3>Keyboards</h3>
-            <h6>Muita Qualidade Envolvida</h6>
+            <h3>{i18n.t("Products.KeyBoards")}</h3>
+            <h6>{i18n.t("Products.KeyBoardstext")}</h6>
               <Image
                   alt=""
                   src={Keyboard}
@@ -59,12 +58,13 @@ export default function ProductsHome() {
       <Row>
         <Col
           className={styled.backgroundcolor}
-          style={{ width: "100vw", height: "50vh" }}
+          style={{ width: "100vw", height: "auto" }}
         >
           <div style={{ marginLeft : "20%"}}>
-            <h3>Housing</h3>
-            <h6>Muita Qualidade Envolvida</h6>
+            <h3>{i18n.t("Products.Cases")}</h3>
+            <h6>{i18n.t("Products.Casestext")}</h6>
               <Image
+                className={styled.image}
                 alt=""
                 src={Housing}
                 width="533px"
@@ -77,8 +77,8 @@ export default function ProductsHome() {
         </Col>
         <Col className={styled.backgroundcolor}>
           <div style={{ marginRight : "20%"}}>
-            <h3>Switches</h3>
-            <h6>Muita Qualidade Envolvida</h6>
+            <h3>{i18n.t("Products.Switches")}</h3>
+            <h6>{i18n.t("Products.Switchestext")}</h6>
               <Image
                   alt=""
                   src={Switches}
