@@ -3,15 +3,18 @@ import Button from "react-bootstrap/Button";
 import styles from "./styles.module.scss";
 
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { DecoderContext } from "../../context/decoder";
+import { CartContext } from "../../context/cart";
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function ProductCard(props) {
   const [jwt, setJwt] = useState();
   const { jwtoken, setJwtoken, decode, Rdecode } = useContext(DecoderContext);
+  const { cart, setCart, addToCart, removeFromCart  } = useContext(CartContext);
+
   const navigate = useNavigate();
 
   useEffect(() => {
