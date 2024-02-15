@@ -53,7 +53,7 @@ const messages = {
         confirmPassword: "Confirm Password",
       },
       Cart: {
-        message : ""
+        Message : "You don't have items added to your cart"
       }
     },
   },

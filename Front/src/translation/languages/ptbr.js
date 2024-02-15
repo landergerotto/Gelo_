@@ -59,7 +59,9 @@ const messages = {
       passwordconferencing : "As senhas não conferem",
       passwordlenght : "Senha inferior a 6 caracteres"
       },
-        
+      Cart: {
+        Message : "Você não tem itens adicionados ao seu carrinho"
+      }
     },
   },
 };

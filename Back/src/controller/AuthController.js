@@ -76,7 +76,7 @@ class AuthControler {
     if (!user)
       return res.status(422).json({ message: "Usuário e/ou senha inválido" });
 
-    console.log(json);
+    // console.log(json);
     bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET);
     const decrypted2 = bytes.toString(CryptoJS.enc.Utf8);
 

@@ -37,7 +37,7 @@ export default function CartComponent() {
     else{
       return(<>
       <p>
-        Você nao tem itens adicionados ao seu carrinho
+        {i18n.t("Cart.Message")}
       </p>
       </>)
     }
