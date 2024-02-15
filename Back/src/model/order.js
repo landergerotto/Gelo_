@@ -20,6 +20,10 @@ const orderSchema = new mongoose.Schema({
             type: String,
             required: true,
         },
+        Qty : {
+            type: number,
+            require: true
+        }
 
     }],
     createdAt: {

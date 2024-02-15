@@ -48,7 +48,7 @@ export default function NavBar() {
           <Nav style={{display: "flex", justifyContent: "center", alignItems : "center"}}>
             <Nav.Link as={Link} to="/">{i18n.t("navbar.Home")}</Nav.Link>
             <Nav.Link as={Link} to="/products">{i18n.t("navbar.Products")}</Nav.Link>
-            <Nav.Link href="#deets" >{i18n.t("navbar.Cart")}</Nav.Link>
+            <Nav.Link as={Link} to="/cart" >{i18n.t("navbar.Cart")}</Nav.Link>
             <NavDropdown title={i18n.t("navbar.Language")} id="collapsible-nav-dropdown">
               <NavDropdown.Item onClick={(e) => {handleLanguage("en-US")}}>
                 <Image        
