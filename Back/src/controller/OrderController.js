@@ -19,11 +19,11 @@ class OrderController {
   }
 
   static async create(req, res) {
-    console.log("Cheguei aq hehe");
+    console.log(req.body);
 
     const { number, product, userId } = req.body;
 
-    if (number < 1)
+    if (number < 0)
       return res.status(400).send({ message: "No order Provider" });
 
     try {

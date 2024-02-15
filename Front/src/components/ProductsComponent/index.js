@@ -35,12 +35,7 @@ export default function Products() {
     console.log(res.data);
   }
 
-  async function handleClick(id) {
-    await axios.post(`http://localhost:8080/api/article/like/${id}`, {
-      userId: "65784a80eeb305eb54f56446",
-    });
-    getPosts();
-  }
+
 
   function RenderComments(props) {
     const artigo = props.artigo;
@@ -56,7 +51,7 @@ export default function Products() {
     // Rdecode()
     if (Rdecode())
     setJwt(Rdecode());
-    console.log(jwt)
+    console.log(jwtoken)
   }, []);
 
   return (
