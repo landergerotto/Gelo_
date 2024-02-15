@@ -6,6 +6,7 @@ import { DecoderProvider } from "./context/decoder";
 import { NextUIProvider } from "@nextui-org/react";
 
 import HomePage from "./pages/Home";
+import CartPage from "./pages/Cart";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import NotFound from "./components/NotFound";
@@ -26,6 +27,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               {/* <Route path="/products" element={<ProductsPage />} /> */}
+              <Route path="/cart" element={<CartPage />}/>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/product/:id" element={<SingleProductPage />} />
