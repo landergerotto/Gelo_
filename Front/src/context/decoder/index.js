@@ -18,7 +18,6 @@ export const DecoderProvider = ({ children }) => {
 
   function Rdecode ()
   {
-    console.log("pog");
     const token = sessionStorage.getItem("token");
     const decodeToken = jwt.jwtDecode(token);
     setJwtoken(decodeToken);
