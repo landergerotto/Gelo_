@@ -3,21 +3,53 @@ import Form from "react-bootstrap/Form";
 
 import styles from "./styles.module.scss";
 
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios"
 
 export default function SingleProductComponent() {
+  const url = window.location.href;
+  const slug = url.split("/").pop();
+  const [product, setProduct] = useState({})
+  useEffect(() => {
+    getItem()
+  }, [ ])
+
+  async function getItem()
+  {
+    const res = await axios.get(`http://localhost:8080/api/product/${slug}`);
+    console.log(res.data)
+    setProduct(res.data);
+  }
+
+  function Options()
+  {
+    // if(!product == {})
+    //   return
+    // if (product.color.length > 0)
+    // {
+    //   Array.from(product.color, (color) => {
+    //     return(
+    //       <option value={color}>{color}</option>
+    //     )
+    //   })
+
+    // }
+  }
+
+  console.log(slug)
   return (
     <>
       <div className={styles.body}>
         <div className={styles.container}>
           <div className={styles.product_image}>
-            <img
+            {/* <img
               src="http://co0kie.github.io/codepen/nike-product-page/nikeLogo.png"
               alt=""
               className={styles.product_logo}
-            />
+            /> */}
             <img
-              src="http://co0kie.github.io/codepen/nike-product-page/nikeShoe.png"
+              src="https://freepngimg.com/download/keyboard/162894-gaming-keyboard-free-png-hq.png"
               alt=""
               className={styles.product_pic}
             />
@@ -39,14 +71,14 @@ export default function SingleProductComponent() {
 
           <div className={styles.product_details}>
             <header>
-              <h1 className={styles.product_details_title}>Nike Roshe Run</h1>
+              <h1 className={styles.product_details_title}>{product.name}</h1>
               <span className={styles.product_details_colorCat}>
-                mint green
+              {product.type}
               </span>
               <div className={styles.product_details_price}>
-                <span className={styles.product_details_before}>$150</span>
+                <span className={styles.product_details_before}>R$150</span>
                 <span className={styles.product_details_price_current}>
-                  $144.99
+                  R${product.price?.toFixed(2)}
                 </span>
               </div>
               <div className={styles.product_details_rate}>
@@ -66,10 +98,7 @@ export default function SingleProductComponent() {
             <article>
               <h5>Description</h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                {product.description}
               </p>
             </article>
             <div className={styles.product_details_controls}>
@@ -82,6 +111,8 @@ export default function SingleProductComponent() {
                     <div>
                       <Form.Select aria-label="Default select example">
                         <option disabled>Open this select menu</option>
+                        <Options></Options>
+
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
