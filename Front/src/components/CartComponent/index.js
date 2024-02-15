@@ -10,6 +10,8 @@ import axios from "axios";
 
 import { CartContext } from "../../context/cart";
 
+import { i18n } from "../../translation/i18n"
+
 export default function CartComponent() {
 
   const { cart, setCart, addToCart, removeFromCart  } = useContext(CartContext);
@@ -31,7 +33,7 @@ export default function CartComponent() {
                 <Button variant="secondary">-</Button>{' '}
                 <Button variant="success">+</Button>{' '}
                 </Card.Text>
-                <Button variant="danger" onClick={() => removeFromCart(item)}>Excluir</Button>
+                <Button variant="danger" onClick={() => removeFromCart(item)}>{i18n.t("Products.Delete")}</Button>
               </Card.Body>
             </Card>
           </Col>

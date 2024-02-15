@@ -85,6 +85,7 @@ export default function LoginCard() {
                 style={{backgroundColor : "#cccccc"}}
               />
               <Form.Control
+                type="Password"
                 value={pass}
                 placeholder={i18n.t("Login.password")}
                 onChange={(e) => setPass(e.target.value)}
@@ -94,9 +95,7 @@ export default function LoginCard() {
                 <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} className={styles.card__form__button} type="submit">
                 {i18n.t("Login.login")}
                 </Button>
-              </Container>
-              <Container className={styles.card__form__container} >
-                <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} as={Link} to="/register" className={styles.card__form__button} type="submit">
+                <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%", marginTop: "5%"}} as={Link} to="/register" className={styles.card__form__button} type="submit">
                 {i18n.t("Register.register")}
                 </Button>
               </Container>

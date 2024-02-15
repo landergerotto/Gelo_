@@ -34,7 +34,8 @@ const messages = {
         Description: "Descrição",
         Color: "Cor",
         Size: "Tamanho",
-        Quantity: "QTD"
+        Quantity: "QTD",
+        Delete: "Remover"
       },
       Footer: {
         Privacy: "Política de Privacidade",

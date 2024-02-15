@@ -34,7 +34,8 @@ const messages = {
         Description: "Description",
         Color: "Color",
         Size: "Size",
-        Quantity: "QTY"
+        Quantity: "QTY",
+        Delete: "Delete"
       },
       Footer: {
         Privacy: "Privacy Policy",
@@ -51,6 +52,9 @@ const messages = {
         password: "Password",
         confirmPassword: "Confirm Password",
       },
+      Cart: {
+        message : ""
+      }
     },
   },
 };
