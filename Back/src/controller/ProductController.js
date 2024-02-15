@@ -40,6 +40,7 @@ class ProductController {
                 price,
                 bought: [],
                 color: col,
+                qty: 1,
                 type,
                 createdAt: Date.now(),
                 updatedAt: Date.now(),

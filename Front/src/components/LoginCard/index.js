@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { AlertContext } from "../../context/alert";
 import Image from 'react-bootstrap/Image';
@@ -90,9 +90,14 @@ export default function LoginCard() {
                 onChange={(e) => setPass(e.target.value)}
                 style={{backgroundColor : "#CCCCCC"}}
               />
-              <Container className={styles.card__form__container}>
+              <Container className={styles.card__form__container} >
                 <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} className={styles.card__form__button} type="submit">
                 {i18n.t("Login.login")}
+                </Button>
+              </Container>
+              <Container className={styles.card__form__container} >
+                <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} as={Link} to="/register" className={styles.card__form__button} type="submit">
+                {i18n.t("Register.register")}
                 </Button>
               </Container>
             </Form>

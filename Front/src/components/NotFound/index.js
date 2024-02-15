@@ -139,9 +139,14 @@ export default function NotFound() {
       </div>
       <div>
       <Container className={styles.card__form__container}>
-                <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} as={Link} to="/" className={styles.card__form__button} type="submit">
-                {i18n.t("navbar.Home")}
-                </Button>
+        <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} as={Link} to="/login" className={styles.card__form__button} type="submit">
+          {i18n.t("navbar.Login")}
+        </Button>
+      </Container>
+      <Container className={styles.card__form__container} style={{marginTop : "1%"}}>
+        <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} as={Link} to="/" className={styles.card__form__button} type="submit">
+          {i18n.t("navbar.Home")}
+        </Button>
       </Container>
       </div>
     </>

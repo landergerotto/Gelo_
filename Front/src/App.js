@@ -15,7 +15,6 @@ import ProductsPage from "./pages/Products";
 import SingleProductPage from "./pages/SingleProduct";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./pages/Protected";
-import CartPage from "./pages/Cart";
 
 function App() {
 
