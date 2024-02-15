@@ -18,6 +18,23 @@ export default function CartComponent() {
   // setCart([])
   console.log(cart)
 
+  function RenderGoButton()
+  {
+    if (cart.length > 0)
+        return(
+      <>
+      <Button variant="success" className="mt-5">Buy</Button>
+      </>
+      )
+    else{
+      return(<>
+      <p>
+        Você nao tem itens adicionados ao seu carrinho
+      </p>
+      </>)
+    }
+  }
+
   return (
     <>
       <Container>
@@ -38,6 +55,9 @@ export default function CartComponent() {
             </Card>
           </Col>
           ))}
+        </Row>
+        <Row>
+          <RenderGoButton></RenderGoButton>
         </Row>
       </Container>
     </>

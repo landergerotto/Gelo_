@@ -54,6 +54,7 @@ export default function Products() {
   useEffect(() => {
     getPosts();
     // Rdecode()
+    if (Rdecode())
     setJwt(Rdecode());
     console.log(jwt)
   }, []);
