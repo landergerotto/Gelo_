@@ -8,6 +8,13 @@ export const CartProvider = ({ children }) => {
 
   function addToCart (item)
   {
+    var founde = false
+    cart.forEach(element => {
+        if (element._id == item._id)
+            founde = true;
+    });
+    if (founde == true)
+        return;
     setCart(oldCart => [...oldCart, item]);
   }
 

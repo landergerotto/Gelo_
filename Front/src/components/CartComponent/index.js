@@ -5,26 +5,33 @@ import { Col, Container, Row } from "react-bootstrap";
 // import styles from "./styles.module.scss";
 
 import { Link, useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 
+import { CartContext } from "../../context/cart";
+
 export default function CartComponent() {
+
+  const { cart, setCart, addToCart, removeFromCart  } = useContext(CartContext);
+  // setCart([])
+  console.log(cart)
+
   return (
     <>
       <Container>
         <Row xs={1} md={2} lg={2} xl={3} xxl={4} className="g-4">
-        {Array.from({length: 5}).map((item) => (
+        {Array.from(cart).map((item, idx) => (
           
-          <Col>
+          <Col key={idx}>
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>{item.name}</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                <Button variant="secondary">-</Button>{' '}
+                <Button variant="success">+</Button>{' '}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="danger" onClick={() => removeFromCart(item)}>Excluir</Button>
               </Card.Body>
             </Card>
           </Col>

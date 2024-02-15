@@ -17,12 +17,15 @@ export default function ProductCard(props) {
   const { jwtoken, setJwtoken, decode, Rdecode } = useContext(DecoderContext);
   const { cart, setCart, addToCart, removeFromCart  } = useContext(CartContext);
 
+  // console.log(props);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     // Rdecode()
+    // setCart([])
     setJwt(Rdecode());
-    console.log(props)
+    // console.log(props)
   }, []);
 
   function RenderAdm() {
@@ -44,13 +47,17 @@ export default function ProductCard(props) {
   const DeleteOnClick = async () => {
     console.log("a");
     const res = await axios.delete(`http://localhost:8080/api/product/${props.id}`, {
-      id: "65ccb7cbe7b45aeaf4a0bb9a",
-      sla: "ajuda",
     });
     console.log(res);
     // alterar para /home
     window.location.reload(false)
   };
+
+  function OnClickAddToCart()
+  {
+    console.log("hey hp")
+    addToCart(props.produto)
+  }
 
   return (
     <>
@@ -86,7 +93,7 @@ export default function ProductCard(props) {
               <span>R$ {props.produto.price.toFixed(2)}</span>
             </div>
             <div className={styles.time_left}>
-              <Button variant="success">{i18n.t("Products.AddCart")}</Button>{" "}
+              <Button variant="success" onClick={() => OnClickAddToCart()}>{i18n.t("Products.AddCart")}</Button>{" "}
             </div>
           </div>
         </main>
