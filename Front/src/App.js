@@ -24,21 +24,21 @@ function App() {
         <AlertProvider>
           <DecoderProvider>
             <Routes>
-              {/* <Route path="/" element={<HomePage />} /> */}
-              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/" element={<HomePage />} />
+              {/* <Route path="/products" element={<ProductsPage />} /> */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/product/:id" element={<SingleProductPage />} />
               <Route
-                path="/"
+                path="/products"
                 element={
                   <ProtectedRoute
                     errorPage={<NotFound></NotFound>}
-                    targetPage={<HomePage></HomePage>}
+                    targetPage={<ProductsPage></ProductsPage>}
                   ></ProtectedRoute>
                 }
               >
-                <Route path="" element={<HomePage />} />
+                <Route path="" element={<ProductsPage />} />
                 <Route path="product/:id" element={<SingleProductPage />} />
               </Route>
               <Route path="*" element={<NotFound />} />
