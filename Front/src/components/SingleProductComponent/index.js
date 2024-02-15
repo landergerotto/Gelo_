@@ -7,6 +7,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios"
 
+import { i18n } from "../../translation/i18n"
+
 export default function SingleProductComponent() {
   const url = window.location.href;
   const slug = url.split("/").pop();
@@ -96,7 +98,7 @@ export default function SingleProductComponent() {
               </div>
             </header>
             <article>
-              <h5>Description</h5>
+              <h5>{i18n.t("Products.Description")}</h5>
               <p>
                 {product.description}
               </p>
@@ -104,7 +106,7 @@ export default function SingleProductComponent() {
             <div className={styles.product_details_controls}>
               <div className={styles.product_details_color}>
                 <div className={styles.h5}>
-                  <h5>color</h5>
+                  <h5>{i18n.t("Products.Color")}</h5>
                 </div>
                 <div className={styles.product_details_color}>
                   <ul className={styles.ul}>
@@ -127,7 +129,7 @@ export default function SingleProductComponent() {
               <div>
                 <div className={styles.size}>
                   <div className={styles.h5}>
-                    <h5>size</h5>
+                    <h5>{i18n.t("Products.Size")}</h5>
                   </div>
                   <a
                     href="#!"
@@ -140,7 +142,7 @@ export default function SingleProductComponent() {
               <div>
                 <div className={styles.qty}>
                   <div className={styles.h5}>
-                    <h5>qty</h5>
+                    <h5>{i18n.t("Products.Quantity")}</h5>
                   </div>
                   <a
                     href="#!"
@@ -157,7 +159,7 @@ export default function SingleProductComponent() {
                   src="http://co0kie.github.io/codepen/nike-product-page/cart.png"
                   alt=""
                 />
-                <span>add to cart</span>
+                <span>{i18n.t("Products.AddCart")}</span>
               </button>
               {/* <a href="#!">
               <img

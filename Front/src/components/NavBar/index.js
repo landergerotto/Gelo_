@@ -11,7 +11,6 @@ import LogoEUA from "../../img/NavBar/Flags/EUA.png";
 import Perfil from "../../img/NavBar/Perfil.png";
 import Image from 'react-bootstrap/Image';
 import { i18n } from "../../translation/i18n"
-import { useState } from "react";
 
 
 
@@ -51,7 +50,7 @@ export default function NavBar() {
             <Nav.Link as={Link} to="/products">{i18n.t("navbar.Products")}</Nav.Link>
             <Nav.Link href="#deets" >{i18n.t("navbar.Cart")}</Nav.Link>
             <NavDropdown title={i18n.t("navbar.Language")} id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1" onClick={(e) => {handleLanguage("en-US")}}>
+              <NavDropdown.Item onClick={(e) => {handleLanguage("en-US")}}>
                 <Image        
                 alt=""
                 src={LogoEUA}
@@ -63,7 +62,7 @@ export default function NavBar() {
                 
                 {i18n.t("navbar.English")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2" onClick={(e) => {handleLanguage("pt-BR")}}>
+              <NavDropdown.Item onClick={(e) => {handleLanguage("pt-BR")}}>
               <Image        
                 alt=""
                 src={LogoBrasil}
@@ -74,14 +73,26 @@ export default function NavBar() {
                 {i18n.t("navbar.Portuguese")}
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#home" style={{paddingTop: "5%"}}>
-                <Image 
-                    alt=""
-                    src={Perfil}
-                    width="32px"
-                    height="32px"
-                    fluid/>
-            </Nav.Link>
+
+            <NavDropdown title={
+            <Image 
+            alt=""
+            src={Perfil}
+            width="32px"
+            height="32px"
+            fluid/>
+            } id="collapsible-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/register">
+                <div>
+                  {i18n.t("navbar.Register")}
+                </div>
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/login">
+              <div>
+                  {i18n.t("navbar.Login")}
+              </div>
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

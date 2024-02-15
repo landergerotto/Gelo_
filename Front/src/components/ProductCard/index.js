@@ -9,6 +9,8 @@ import { DecoderContext } from "../../context/decoder";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { i18n } from "../../translation/i18n"
+
 export default function ProductCard(props) {
   const [jwt, setJwt] = useState();
   const { jwtoken, setJwtoken, decode, Rdecode } = useContext(DecoderContext);
@@ -81,7 +83,7 @@ export default function ProductCard(props) {
               <span>R$ {props.produto.price.toFixed(2)}</span>
             </div>
             <div className={styles.time_left}>
-              <Button variant="success">Add To Cart</Button>{" "}
+              <Button variant="success">{i18n.t("Products.AddCart")}</Button>{" "}
             </div>
           </div>
         </main>

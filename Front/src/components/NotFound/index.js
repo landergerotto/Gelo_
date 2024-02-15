@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import { Alert } from "react-bootstrap";
+import { Alert, Button, Container } from "react-bootstrap";
 import { AlertContext } from "../../context/alert";
 import styles from "./styles.module.scss";
+import { i18n } from "../../translation/i18n"
+import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
@@ -134,6 +136,13 @@ export default function NotFound() {
         </svg>
         <p>
         </p>
+      </div>
+      <div>
+      <Container className={styles.card__form__container}>
+                <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} as={Link} to="/" className={styles.card__form__button} type="submit">
+                {i18n.t("navbar.Home")}
+                </Button>
+      </Container>
       </div>
     </>
   );

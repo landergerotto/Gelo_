@@ -9,6 +9,8 @@ const messages = {
         Language: "Language",
         Portuguese: "Portuguese",
         English: "English",
+        Login: "Sigin in",
+        Register: "Sign Up"
       },
       Carousel: {
         KeyboardStyle: "Modified Keyboards",
@@ -28,6 +30,11 @@ const messages = {
         Casestext: "High-quality cases",
         Switches: "Switches",
         Switchestext: "High-quality switches",
+        AddCart: "Add to Cart",
+        Description: "Description",
+        Color: "Color",
+        Size: "Size",
+        Quantity: "QTY"
       },
       Footer: {
         Privacy: "Privacy Policy",
@@ -43,7 +50,7 @@ const messages = {
         email: "Email",
         password: "Password",
         confirmPassword: "Confirm Password",
-      }
+      },
     },
   },
 };

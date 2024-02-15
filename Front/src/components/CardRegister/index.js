@@ -10,9 +10,12 @@ import { i18n } from "../../translation/i18n"
 
 import { SECRET } from "../../env";
 import CryptoJS from "crypto-js";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterCard() {
   const { setMessage, setShow, setVariant } = useContext(AlertContext);
+  const navigate = useNavigate();
+
 
   var [name, setName] = useState("");
   var [email, setEmail] = useState("");
@@ -87,6 +90,8 @@ export default function RegisterCard() {
       setEmail("");
       setPassword("");
       setConfirmPass("");
+
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
