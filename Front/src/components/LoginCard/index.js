@@ -5,6 +5,8 @@ import styles from "./styles.module.scss";
 import { AlertContext } from "../../context/alert";
 import Image from 'react-bootstrap/Image';
 import Perfil from "../../img/Login/perfil.png"
+import { i18n } from "../../translation/i18n"
+
 
 
 import axios from "axios";
@@ -78,19 +80,19 @@ export default function LoginCard() {
             <Form className={styles.card__form} onSubmit={handleSubmit}>
               <Form.Control
                 value={email}
-                placeholder="Insira seu e-mail"
+                placeholder={i18n.t("Login.email")}
                 onChange={(e) => setEmail(e.target.value)}
                 style={{backgroundColor : "#cccccc"}}
               />
               <Form.Control
                 value={pass}
-                placeholder="Insira sua senha"
+                placeholder={i18n.t("Login.password")}
                 onChange={(e) => setPass(e.target.value)}
                 style={{backgroundColor : "#CCCCCC"}}
               />
               <Container className={styles.card__form__container}>
                 <Button style={{backgroundColor : "#cccccc", border: "none", color : "black", width: "100%"}} className={styles.card__form__button} type="submit">
-                  Login
+                {i18n.t("Login.login")}
                 </Button>
               </Container>
             </Form>

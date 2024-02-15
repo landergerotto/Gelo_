@@ -4,6 +4,8 @@ import axios from "axios";
 import styles from "./styles.module.scss";
 import { AlertContext } from "../../context/alert";
 import Image from 'react-bootstrap/Image';
+import { i18n } from "../../translation/i18n"
+
 
 
 import { SECRET } from "../../env";
@@ -92,12 +94,12 @@ export default function RegisterCard() {
 
   return (
     <Card className={styles.card} style={{borderRadius : "30", borderColor: "black"}}>
-      <Card.Body style={{backgroundColor: "#14253D"}}>
-      <Card.Title style={{color : "#cfcfcf", fontSize : "60px", marginBottom: "5%"}}><strong>Register</strong></Card.Title>
+      <Card.Body style={{backgroundColor: "#202020"}}>
+      <Card.Title style={{color : "#cfcfcf", fontSize : "60px", marginBottom: "5%"}}><strong>{i18n.t("Register.register")}</strong></Card.Title>
         <Form className={styles.card__form} onSubmit={handleSubmit}>
           <Container className={styles.card__form__input}>
             <Form.Control
-              placeholder="Name"
+              placeholder={i18n.t("Register.name")}
               value={name}
               onChange={(e) => setName(e.target.value)}
               style={{backgroundColor : "#cfcfcf"}}
@@ -105,7 +107,7 @@ export default function RegisterCard() {
           </Container>
           <Container className={styles.card__form__input}>
             <Form.Control
-              placeholder="E-mail"
+              placeholder={i18n.t("Register.email")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               style={{backgroundColor : "#cfcfcf"}}
@@ -113,7 +115,7 @@ export default function RegisterCard() {
           </Container>
           <Container className={styles.card__form__input}>
             <Form.Control
-              placeholder="Senha"
+              placeholder={i18n.t("Register.password")}
               type="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -123,15 +125,15 @@ export default function RegisterCard() {
           <Container className={styles.card__form__input}>
             <Form.Control
               type="password"
-              placeholder="Confirm Password"
+              placeholder={i18n.t("Register.confirmPassword")}
               value={confirmPass}
               onChange={(e) => setConfirmPass(e.target.value)}
               style={{backgroundColor : "#cfcfcf"}}
             />
           </Container>
           <Container>
-            <Button className={styles.card__form__button} style={{backgroundColor : "#213B61", borderColor: "black", color : "#cfcfcf"}} type="submit">
-              Cadastrar
+            <Button className={styles.card__form__button} style={{backgroundColor : "#5D5D5D", borderColor: "black", color : "white"}} type="submit">
+            {i18n.t("Register.register")}
             </Button>
           </Container>
         </Form>
